@@ -4,11 +4,10 @@ import { useHistory } from 'react-router-dom';
 import Base from '../Base/Base';
 
 
-
 function ProductList() {
   const { products, setProducts, count, setCount,  setCart} = useContext(MyContext);
   const history = useHistory();
-   
+  
 
   useEffect(()=>{
     const getProducts = async () =>{
@@ -27,9 +26,9 @@ function ProductList() {
         }else{
           getProducts()
         }
-           
-  },[])
-
+        
+    
+  })
   const addcart = async(prodId)=>{ 
     
     const res = await fetch (`https://bike-rental-portal.vercel.app/bike/product/${prodId}`, {
@@ -40,14 +39,11 @@ function ProductList() {
     }
    });
    const data = await res.json();
-  //  console.log(data.product)
-      
-  setCart(data.product)
-  
-  setCount(count+1);
-        
-  }
-
+   console.log(data.product)
+   setCart(data.product)
+   setCount(count+1);
+   }
+   
   const removecart = async(prodId)=>{ 
     
     const res = await fetch (`https://bike-rental-portal.vercel.app/bike/product/${prodId}`, {
@@ -58,10 +54,9 @@ function ProductList() {
     }
    });
    const data = await res.json();
-  //  console.log(data)
+   console.log(data)
    setCart(data.product)
    setCount(count-1);
-    
   }
   return (
 
@@ -103,18 +98,26 @@ function ProductList() {
                   <p className="text-sm font-medium text-gray-900">{`Price : ${product.price}`}</p>
                   
                 </div>
+               
                 <div>
-       
-                  <button variant="primary"
-                  onClick={()=>addcart(product._id)}
-                  >Add to cart</button>
+    {/* <button
+      type="submit"
+      className="flex  justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      onClick={()=>cart(product._id)}
+    >
+      Buy Rent
+    </button> */}
+    
+          <button variant="primary"
+          onClick={()=>addcart(product._id)}
+          >Add to cart</button>
           
           
-                  <button variant="danger"
-                  onClick={()=>removecart(product._id)}
-                  >Remove cart</button>
+            <button variant="danger"
+            onClick={()=>removecart(product._id)}
+            >Remove cart</button>
           
-               </div>
+  </div>
               </div>
             </div>
           ))}
