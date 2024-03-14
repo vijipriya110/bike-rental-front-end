@@ -1,3 +1,4 @@
+import './App.css';
 import Signin from "./Components/UserRoutes/Signin";
 import Addproduct from "./Components/ProductRoutes/Addproduct";
 import ForgotPassword from "./Components/UserRoutes/ForgotPassword";
@@ -9,15 +10,19 @@ import Signout from "./Components/UserRoutes/Signout";
 import Signup from "./Components/UserRoutes/Signup";
 import Dashboard from "./Components/Dashboard";
 import { Switch } from "react-router-dom";
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import Calendar from './Components/Calender';
+// import CartItems from './Components/CartItems';
+
 
 
 export default function App() {
   return (
       <div>
         <Switch>
-         <Route exact path="/">
+        <Route exact path="/">
+         <ProductList/>
+         </Route>
+         <Route exact path="/edit-product">
          <Dashboard/>
          </Route>
 
@@ -52,7 +57,7 @@ export default function App() {
          <Route path="/edit/:id">
          <Updateproduct/>
          </Route>
-      
+         
          </Switch>
 
       </div>

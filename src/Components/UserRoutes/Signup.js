@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from '../Base/Base'
 import { MyContext } from '../MyContext';
 import { useHistory } from 'react-router-dom';
+import Base from '../Base/Base';
 
 function Signup() {
   const history = useHistory();
@@ -29,7 +29,7 @@ localStorage.setItem("token", data.token)
 
   }
   return (
-    <Example
+    <Base
     title={"Signup Page"}
     
     >
@@ -41,15 +41,15 @@ localStorage.setItem("token", data.token)
           <img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1702944000&semt=ais" alt="Signup"/>
         </div>
         <div className="user">
+          
        <input
         placeholder='Enter Name'
         type ="text"
         value = {username}
         onChange={(e)=>setUsername(e.target.value)}
-        /><br></br>
+        />
+        <br></br>
 
-
-        
         <input
         placeholder='Enter Email'
         type ="email"
@@ -81,7 +81,7 @@ localStorage.setItem("token", data.token)
       </div>
     </div>
 
-    </Example>
+    </Base>
   )
 }
 

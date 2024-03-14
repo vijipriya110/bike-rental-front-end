@@ -13,16 +13,13 @@ export const MyProvider = ({ children }) => {
     const [brandname, setBrandname] = useState();
     const [model, setModel] = useState();
     const [price, setPrice] = useState();
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState();
     const [Image, setImage] = useState();
     const [condition, setCondition] = useState();
+    const [count, setCount] = useState(0)
+    const [cart, setCart] = useState([])
 
-    
-
-//    const handleMarkDownChange = (newMarkDown) => {
-//      setMarkDown(newMarkDown);
-//    };
- 
+  
    return (
     <MyContext.Provider
       value ={{
@@ -47,20 +44,19 @@ export const MyProvider = ({ children }) => {
         Image, 
         setImage,
         quantity,
-        setQuantity
+        setQuantity,
+        count,
+        setCount,
+        cart,
+        setCart
 
-        
       }}
       
       >
         {children}
 
       </MyContext.Provider>
-
-    //  <MarkDownContext.Provider value={{MarkDown, handleMarkDownChange}}>
-    //    {children}
-    //  </MarkDownContext.Provider>
+    
    );
  };
  
-//  export const useMarkDown = () => useContext(MarkDownContext);

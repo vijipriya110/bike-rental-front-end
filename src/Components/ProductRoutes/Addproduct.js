@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from '../Base/Base'
 import { MyContext } from '../MyContext';
 import { useHistory } from 'react-router-dom';
+import Base from '../Base/Base';
 
 
   
@@ -36,8 +36,9 @@ function Addproduct() {
   }
   return (
     
-    <Example
+    <Base
     title={"Add new product"}
+    description={"Here can Add the new rent Products"}
     >
      <div className="user">
        <input
@@ -84,10 +85,9 @@ function Addproduct() {
         
         <button type='submit' onClick={handleCreate}>Submit</button><br></br>
 
-        {/* <button onClick={()=>history.push("/forgotpassword")}>Forget Password?</button><br/><br/> */}
-
+       
         </div>
-    </Example>
+    </Base>
   )
 }
 

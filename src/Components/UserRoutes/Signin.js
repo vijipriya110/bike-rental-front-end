@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from '../Base/Base'
 import { useHistory } from 'react-router-dom'
 import { MyContext } from '../MyContext';
+import Base from '../Base/Base';
 
 function Signin() {
   const { email, setEmail, password, setPassword} = useContext(MyContext);
@@ -16,7 +16,8 @@ function Signin() {
     method :"POST",
     body : JSON.stringify(userInfo),
     headers:{
-        "Content-Type":"application/json"
+        "Content-Type":"application/json",
+        
     }
    });
    const data = await res.json();
@@ -27,7 +28,7 @@ function Signin() {
     
    }
   return (
-    <Example
+    <Base
     title={"Signin Page"}
     
     >
@@ -58,7 +59,7 @@ function Signin() {
         </div>
         </div>
 
-    </Example>
+    </Base>
   )
 }
 

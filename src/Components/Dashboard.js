@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from './Base/Base'
 import { MyContext } from './MyContext';
 import { useHistory } from 'react-router-dom';
+import Base from './Base/Base';
 
 
   
@@ -29,20 +29,22 @@ function Dashboard() {
    }
   }
   return (
-    <Example
+    <Base
     title={"Product List"}
     >
-     <div className='card-container'>
+     <div className='card-box-container'>
             {products.map((prod, idx)=>(
-                     <div className='card' key={idx}>
-                        <div className='content'>
-                     <h3>{prod.username}</h3>
-                     <p>{prod.model}</p>
-                     <p>{prod.price}</p>
-                     <p>{prod.quantity}</p>
+                     <div className='card-box' key={idx}>
+                        <div className='content-box'>
+                     <h3>{`BrandName : ${prod.brandname}`}</h3>
+                     <p><b>{`Model : ${prod.model}`}</b></p>
+                     <p><b>{`Condition : ${prod.condition}`}</b></p>
+                     <p><b>{`Price : ${prod.price}`}</b></p>
+                     <p><b>{`Quantity : ${prod.quantity}`}</b></p>
+                     <p><b>{`Image : ${prod.Image}`}</b></p>
                      </div>
 
-                     <div className='control'>
+                     <div className='control-btn'>
                      <button onClick={()=>history.push(`/edit/${prod._id}`)}>Edit</button> {" "}
                      <button onClick={()=>deleteStudent(prod._id)}>Delete</button>
                      </div>
@@ -51,7 +53,7 @@ function Dashboard() {
      </div>
 
 
-    </Example>
+    </Base>
   )
 }
 

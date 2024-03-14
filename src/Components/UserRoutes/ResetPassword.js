@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from '../Base/Base'
 import { useHistory } from 'react-router-dom';
 import { MyContext } from '../MyContext';
+import Base from '../Base/Base';
 
 function ResetPassword() {
   const history = useHistory();
@@ -28,7 +28,7 @@ function ResetPassword() {
    }
 
   return (
-    <Example
+    <Base
     title={"Signin Page"}
     
     >
@@ -53,7 +53,7 @@ function ResetPassword() {
         </div>
         </div>
 
-    </Example>
+    </Base>
   )
 }
 

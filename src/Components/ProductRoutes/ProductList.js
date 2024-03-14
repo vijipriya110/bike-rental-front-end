@@ -1,12 +1,15 @@
-import React, { useContext, useEffect } from 'react'
-import Example from '../Base/Base'
+import React, { useContext, useEffect} from 'react'
 import { MyContext } from '../MyContext';
 import { useHistory } from 'react-router-dom';
+import Base from '../Base/Base';
+
 
 
 function ProductList() {
-  const { products, setProducts} = useContext(MyContext);
+  const { products, setProducts, count, setCount,  setCart} = useContext(MyContext);
   const history = useHistory();
+   
+
   useEffect(()=>{
     const getProducts = async () =>{
         const response = await fetch(`https://bike-rental-portal.vercel.app/bike/all-product`, {
@@ -24,25 +27,61 @@ function ProductList() {
         }else{
           getProducts()
         }
-        
-    
-  }, [])
+           
+  },[])
 
+  const addcart = async(prodId)=>{ 
+    
+    const res = await fetch (`https://bike-rental-portal.vercel.app/bike/product/${prodId}`, {
+    method :"GET",
+        headers:{
+        "Content-Type":"application/json",
+        "x-auth-token" : localStorage.getItem("token")
+    }
+   });
+   const data = await res.json();
+  //  console.log(data.product)
+      
+  setCart(data.product)
+  
+  setCount(count+1);
+        
+  }
+
+  const removecart = async(prodId)=>{ 
+    
+    const res = await fetch (`https://bike-rental-portal.vercel.app/bike/product/${prodId}`, {
+    method :"GET",
+        headers:{
+        "Content-Type":"application/json",
+        "x-auth-token" : localStorage.getItem("token")
+    }
+   });
+   const data = await res.json();
+  //  console.log(data)
+   setCart(data.product)
+   setCount(count-1);
+    
+  }
   return (
-    <Example
-    title={"Product List"}
+
+    <Base
+    title={"Welcome to Bike Rental portal"}
     >
-     
-           <div>
-           <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">Badge</span>
-           </div>
+     <div className='bg'>
+     <b>{`cart :${count}`} </b>
+           
+        
+
+      </div>
+           
            <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+        {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Welcome to Bike Rental portal</h2> */}
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className='card-box-container'>
           {products.map((product) => (
-            <div key={product._id} className="group relative">
+            <div key={product._id} className="card-box">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                   src={product.Image}
@@ -64,15 +103,18 @@ function ProductList() {
                   <p className="text-sm font-medium text-gray-900">{`Price : ${product.price}`}</p>
                   
                 </div>
-               
                 <div>
-    <button
-      type="submit"
-      className="flex  justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-    >
-      buy rent
-    </button>
-  </div>
+       
+                  <button variant="primary"
+                  onClick={()=>addcart(product._id)}
+                  >Add to cart</button>
+          
+          
+                  <button variant="danger"
+                  onClick={()=>removecart(product._id)}
+                  >Remove cart</button>
+          
+               </div>
               </div>
             </div>
           ))}
@@ -80,7 +122,7 @@ function ProductList() {
       </div>
     </div>
 
-    </Example>
+    </Base>
   )
 }
 

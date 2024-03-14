@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
-import Example from '../Base/Base'
 import { useParams } from 'react-router-dom';
 import { MyContext } from '../MyContext';
 import { useHistory } from 'react-router-dom';
+import Base from '../Base/Base';
 
 function Updateproduct() {
   const history = useHistory()
@@ -20,7 +20,7 @@ function Updateproduct() {
       setPrice(prod.price)
       setQuantity(prod.quantity)
       setImage(prod.Image)
-   }, [prod])
+   })
 
    async function handleCreate (){
     const updatedObject = {
@@ -41,7 +41,7 @@ const response = await fetch(`https://bike-rental-portal.vercel.app/bike/product
 })
 
 const data = await response.json()
-console.log(data)
+// console.log(data)
 const prodIndex = products.findIndex((prod)=>prod._id === id);
      if(data){
          console.log(updatedObject)
@@ -54,8 +54,9 @@ const prodIndex = products.findIndex((prod)=>prod._id === id);
 
   return (
        
-    <Example
+    <Base
     title={"Edit product"}
+    description={"Here can Edit info of Products"}
     >
      <div className="user">
        <input
@@ -102,10 +103,10 @@ const prodIndex = products.findIndex((prod)=>prod._id === id);
         
         <button type='submit' onClick={handleCreate}>Submit</button><br></br>
 
-        {/* <button onClick={()=>history.push("/forgotpassword")}>Forget Password?</button><br/><br/> */}
+        
 
         </div>
-            </Example>
+            </Base>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import Example from '../Base/Base'
 import { useHistory } from 'react-router-dom';
 import { MyContext } from '../MyContext';
+import Base from '../Base/Base';
 
 function ForgotPassword() {
   const history = useHistory()
@@ -20,14 +20,12 @@ function ForgotPassword() {
 const data = await response.json()
 console.log(data)
 
-// localStorage.setItem("OTP", data.OTP)
-
 history.push("/resetpassword")
   
   }
 
   return (
-    <Example
+    <Base
     title={"Fogot Password"}
     
     >
@@ -51,7 +49,7 @@ history.push("/resetpassword")
       </div>
     </div>
  
-    </Example>
+    </Base>
   )
 }
 
