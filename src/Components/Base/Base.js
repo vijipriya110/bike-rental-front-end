@@ -14,11 +14,9 @@ export default function Base({title, description, children}) {
       <div className="App-container">
         <div className="lay-out">
           <div className="head">
-            <button><i className="fa fa-long-arrow-left fa-1x" aria-hidden="true"></i>Overview Page</button>
-            <div>
-              
-              <button><i className="fa fa-download fa-1x" aria-hidden="true"></i>Free Download</button>
-            </div>
+            <header>
+              <h1>BIKE RENTAL PORTAL</h1>
+            </header>
           </div>
           <hr></hr>
           <div className="lay-container">
@@ -51,10 +49,13 @@ export default function Base({title, description, children}) {
 
             </div>
           </div>
+          <div>
+            
+          </div>
         
         </div>
       </div>
-     
+           
     </div>
 
      )
