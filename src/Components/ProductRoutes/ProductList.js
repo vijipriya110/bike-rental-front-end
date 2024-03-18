@@ -22,7 +22,7 @@ function ProductList() {
           setProducts(products.products)
         }
         if(!localStorage.getItem("token")){
-          history.push("/login")
+          history.push("/signup")
         }else{
           getProducts()
         }
