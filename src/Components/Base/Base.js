@@ -1,12 +1,13 @@
 
 import React from "react";
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import Signout from "../UserRoutes/Signout";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Base({title, description, children}) {
-  const history = useHistory();
+  const navigate = useNavigate();
  
      
   return (
@@ -21,15 +22,15 @@ export default function Base({title, description, children}) {
           <hr></hr>
           <div className="lay-container">
             <div className="nav">
-              <div><button className="sb" onClick={() => history.push("/")}>Products</button></div>
+              <div><button className="sb" onClick={() => navigate("/")}>Products</button></div>
               <hr></hr>
-              <div><button className="sb" onClick={() => history.push("/edit-product")}>Edit-Products</button></div>
+              <div><button className="sb" onClick={() => navigate("/edit-product")}>Edit-Products</button></div>
               <hr></hr>
-              <div><button className="sb" onClick={() => history.push("/add-product")}>Add-Products</button></div>
+              <div><button className="sb" onClick={() => navigate("/add-product")}>Add-Products</button></div>
               <hr></hr>
-              <div><button className="sb" onClick={() => history.push("/signup")}>Signup</button></div>
+              <div><button className="sb" onClick={() => navigate("/signup")}>Signup</button></div>
               <hr></hr>
-              <div><button className="sb" onClick={() => history.push("/login")}>Sigin</button></div>
+              <div><button className="sb" onClick={() => navigate("/login")}>Sigin</button></div>
               <hr></hr>
               <div><b><Signout/></b></div>
               

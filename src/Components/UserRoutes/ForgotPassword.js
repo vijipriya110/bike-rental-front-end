@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../MyContext';
 import Base from '../Base/Base';
 
 function ForgotPassword() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { email, setEmail} = useContext(MyContext);
   const sendResetCode = async()=>{
     const userInfo = {
@@ -20,7 +20,7 @@ function ForgotPassword() {
 const data = await response.json()
 console.log(data)
 
-history.push("/resetpassword")
+navigate("/resetpassword")
   
   }
 

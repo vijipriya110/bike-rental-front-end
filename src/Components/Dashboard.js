@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { MyContext } from './MyContext';
-import { useHistory } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Base from './Base/Base';
 
 
@@ -8,7 +8,7 @@ import Base from './Base/Base';
 function Dashboard() {
   
   const { products, setProducts} = useContext(MyContext);
-  const history  = useHistory()
+  const navigate = useNavigate();
 
   const deleteStudent = async (prodId)=>{
       
@@ -45,7 +45,7 @@ function Dashboard() {
                      </div>
 
                      <div className='control-btn'>
-                     <button onClick={()=>history.push(`/edit/${prod._id}`)}>Edit</button> {" "}
+                     <button onClick={()=>navigate(`/edit/${prod._id}`)}>Edit</button> {" "}
                      <button onClick={()=>deleteStudent(prod._id)}>Delete</button>
                      </div>
                     </div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Signout() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
     const handleLogout = async()=>{
         
@@ -24,7 +24,7 @@ function Signout() {
 
    localStorage.clear()
  
-   history.push("/login")
+   navigate("/login")
     
    }
   return (

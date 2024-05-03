@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { MyContext } from '../MyContext';
 import Base from '../Base/Base';
 
 function ResetPassword() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { password, setPassword} = useContext(MyContext);
    const handleLogin = async()=>{
     const userInfo = {
@@ -23,7 +23,7 @@ function ResetPassword() {
    });
    const data = await res.json();
    console.log(data)
-   history.push("/login")
+  navigate("/login")
         
    }
 

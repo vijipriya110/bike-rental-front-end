@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { MyContext } from '../MyContext';
-import { useHistory } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Base from '../Base/Base';
 
 
   
 function Addproduct() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { products, setProducts, brandname, setBrandname, model, setModel, price, setPrice, condition, setCondition, Image, 
     setImage, quantity, setQuantity } = useContext(MyContext);
 
@@ -31,7 +31,7 @@ function Addproduct() {
    const data = await res.json();
    console.log(data)
    setProducts([...products, data.data])
-  history.push("/products-list")
+  navigate("/products-list")
 
   }
   return (

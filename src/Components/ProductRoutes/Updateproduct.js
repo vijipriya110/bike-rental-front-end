@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { MyContext } from '../MyContext';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import Base from '../Base/Base';
 
 function Updateproduct() {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { products, setProducts, brandname, setBrandname, model, setModel, price, setPrice, condition, setCondition, Image, 
     setImage, quantity, setQuantity } = useContext(MyContext);
 
@@ -47,7 +47,7 @@ const prodIndex = products.findIndex((prod)=>prod._id === id);
          console.log(updatedObject)
          products[prodIndex] = updatedObject;
          setProducts([...products])
-         history.push("/products-list")
+         navigate("/products-list")
      }
     
    }

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { MyContext } from '../MyContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Base from '../Base/Base';
 
 function Signup() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { email, setEmail, password, setPassword, username, setUsername, contact, setContact} = useContext(MyContext);
 
   const handleSignup = async()=>{
@@ -25,7 +25,7 @@ function Signup() {
 const data = await response.json()
 console.log(data)
 localStorage.setItem("token", data.token)
-  history.push("/login")
+  navigate("/login")
 
   }
   return (
@@ -74,7 +74,7 @@ localStorage.setItem("token", data.token)
         
         <button type='submit' onClick={handleSignup}>Register</button><br></br>
 
-        <button onClick={()=>history.push("/login")}>Already have account?sing in</button><br/><br/>
+        <button onClick={()=>navigate("/login")}>Already have account?sing in</button><br/><br/>
 
          </div>
 

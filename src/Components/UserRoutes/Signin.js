@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { MyContext } from '../MyContext';
 import Base from '../Base/Base';
 
 function Signin() {
   const { email, setEmail, password, setPassword} = useContext(MyContext);
-  const history = useHistory()
+  const navigate = useNavigate()
   const handleLogin = async()=>{
     const userInfo = {
         email,
@@ -23,7 +23,7 @@ function Signin() {
    const data = await res.json();
    console.log(data)
     localStorage.setItem("token", data.token)
-    history.push("/")
+    navigate("/")
    
     
    }
@@ -54,7 +54,7 @@ function Signin() {
         
         <button type='submit' onClick={handleLogin}>Login</button><br></br>
 
-        <button onClick={()=>history.push("/forgotpassword")}>Forget Password?</button><br/><br/>
+        <button onClick={()=>navigate("/forgotpassword")}>Forget Password?</button><br/><br/>
 
         </div>
         </div>

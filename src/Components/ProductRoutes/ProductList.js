@@ -1,34 +1,35 @@
 import React, { useContext, useEffect} from 'react'
 import { MyContext } from '../MyContext';
-import { useHistory } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Base from '../Base/Base';
 
 
 function ProductList() {
   const { products, setProducts, count, setCount,  setCart} = useContext(MyContext);
-  const history = useHistory();
+  const navigate = useNavigate();
   
 
   useEffect(()=>{
     const getProducts = async () =>{
         const response = await fetch(`https://bike-rental-portal.vercel.app/bike/all-product`, {
           method:"GET",
-          headers : {
+          headers :{
+            "Content-Type":"application/json",
             "x-auth-token" : localStorage.getItem("token")
           }
         }); 
         const products = await response.json();
         console.log(products.products)
-          setProducts(products.products)
-        }
-        if(!localStorage.getItem("token")){
-          history.push("/signup")
-        }else{
-          getProducts()
-        }
-        
+        setProducts(products.products)
+       if(!localStorage.getItem("token")){
+        navigate("/signup")
+       }
+    }
+    getProducts();
     
-  })
+  }, [] )
+
+  //Add to cart
   const addcart = async(prodId)=>{ 
     
     const res = await fetch (`https://bike-rental-portal.vercel.app/bike/product/${prodId}`, {
@@ -60,7 +61,7 @@ function ProductList() {
   }
   return (
 
-    <Base
+    products && <Base
     title={"Welcome to Bike Rental portal"}
     >
      <div className='bg'>
