@@ -90,9 +90,11 @@ function Cart({ cartItems, setCartItems }) {
                                         <div className="col-4 col-lg-3 mt-4 mt-lg-0">
                                             <div className="stockCounter d-inline">
                                                 <span className="btn btn-danger minus" onClick={() => decreaseQty(item)}>-</span>
+                                                <hr/>
                                                 <input type="number" className="form-control count d-inline" value={item.qty} readOnly />
-
+                                                <hr/>
                                                 <span className="btn btn-primary plus" onClick={() => increaseQty(item)}>+</span>
+                                                <hr/>
                                             </div>
                                         </div>
 
@@ -121,7 +123,7 @@ function Cart({ cartItems, setCartItems }) {
                         </div>
                     </div>
                 </div>
-            </Base> : (!complete ? <h2 className='mt-5'>Your Cart is Empty!</h2>
+            </Base> : (!complete ? <Base><h2 className='mt-5'>Your Cart is Empty!</h2></Base>
                 : <Base>
                     <h2 className='mt-5'>Order Complete!</h2>
                     <p>Your order has been placed sucessfully.</p>

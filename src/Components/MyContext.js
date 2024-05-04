@@ -16,8 +16,8 @@ export const MyProvider = ({ children }) => {
     const [quantity, setQuantity] = useState();
     const [Image, setImage] = useState();
     const [condition, setCondition] = useState();
-    const [count, setCount] = useState(0)
-    const [cart, setCart] = useState([])
+    const [complete, setComplete] = useState(false)
+    // const [cart, setCart] = useState([])
 
   
    return (
@@ -45,10 +45,12 @@ export const MyProvider = ({ children }) => {
         setImage,
         quantity,
         setQuantity,
-        count,
-        setCount,
-        cart,
-        setCart
+        complete,
+        setComplete
+        // count,
+        // setCount,
+        // cart,
+        // setCart
 
       }}
       

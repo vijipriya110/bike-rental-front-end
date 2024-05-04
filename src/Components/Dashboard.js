@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { MyContext } from './MyContext';
+import React, { useContext, useEffect, useState } from 'react'
+// import { MyContext } from './MyContext';
 import {  useNavigate } from 'react-router-dom';
 import Base from './Base/Base';
 
@@ -7,8 +7,29 @@ import Base from './Base/Base';
   
 function Dashboard() {
   
-  const { products, setProducts} = useContext(MyContext);
+  // const { products, setProducts} = useContext(MyContext);
   const navigate = useNavigate();
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch(`https://bike-rental-portal.vercel.app/bike/all-product`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": localStorage.getItem("token")
+        }
+      });
+      const products = await response.json();
+      console.log(products.products)
+      setProducts(products.products)
+      if (!localStorage.getItem("token")) {
+        navigate("/signup")
+      }
+    }
+    getProducts();
+
+  },[])
 
   const deleteStudent = async (prodId)=>{
       
@@ -21,7 +42,7 @@ function Dashboard() {
     });
 
     const data = await response.json()
-    // console.log(data)
+    console.log(data)
    if(data){
      const remainingStudents = 
      products.filter((prod, idx)=> prod._id !== prodId)

@@ -102,11 +102,15 @@ function ProductDetails({ cartItems, setCartItems }) {
                                 </div>
                                 <div className="stockCounter d-inline">
                                     <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
+                                    <hr />
 
                                     <input type="number" className="form-control count d-inline" value={qty} readOnly />
+                                    <hr />
 
                                     <span className="btn btn-primary plus" onClick={increaseQty} >+</span>
                                 </div>
+                                <hr />
+
                                 <button type="button" onClick={addToCart} disabled={product.quantity === 0} id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
 
                                 <hr />

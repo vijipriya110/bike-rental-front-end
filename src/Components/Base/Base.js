@@ -3,6 +3,8 @@ import React from "react";
 // import { useHistory } from 'react-router-dom'
 import Signout from "../UserRoutes/Signout";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -16,6 +18,7 @@ export default function Base({title, description, children}) {
         <div className="lay-out">
           <div className="head">
             <header>
+            <ToastContainer theme='dark' position='top-center'/>
               <h1>BIKE RENTAL PORTAL</h1>
             </header>
           </div>

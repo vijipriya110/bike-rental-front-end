@@ -30,7 +30,7 @@ function ProductList() {
     }
     getProducts();
 
-  })
+  },[])
 
 
   return (
