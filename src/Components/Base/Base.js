@@ -27,10 +27,10 @@ export default function Base({title, description, children}) {
             <div className="nav">
               <div><button className="sb" onClick={() => navigate("/")}>Products</button></div>
               <hr></hr>
-              <div><button className="sb" onClick={() => navigate("/edit-product")}>Edit-Products</button></div>
+              {/* <div><button className="sb" onClick={() => navigate("/edit-product")}>Edit-Products</button></div>
               <hr></hr>
               <div><button className="sb" onClick={() => navigate("/add-product")}>Add-Products</button></div>
-              <hr></hr>
+              <hr></hr> */}
               <div><button className="sb" onClick={() => navigate("/signup")}>Signup</button></div>
               <hr></hr>
               <div><button className="sb" onClick={() => navigate("/login")}>Sigin</button></div>
@@ -55,6 +55,11 @@ export default function Base({title, description, children}) {
           </div>
           <div>
             
+          </div>
+          <div className="footer">
+          <p className="text-center text-white mt-1 ">
+                Bike-Rentl - 2023-2024, All Rights Reserved
+            </p>
           </div>
         
         </div>
