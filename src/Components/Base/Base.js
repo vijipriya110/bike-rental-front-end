@@ -56,11 +56,7 @@ export default function Base({ title, description, children }) {
           <div>
 
           </div>
-          <div className="py-1 bg-dark">
-            <p className="text-center text-white mt-1 ">
-              Bike-Rentl - 2023-2024, All Rights Reserved
-            </p>
-          </div>
+          
 
         </div>
       </div>
