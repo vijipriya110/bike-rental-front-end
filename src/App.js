@@ -20,7 +20,7 @@ import Cart from './Components/ProductRoutes/Cart';
 export default function App() {
   const [cartItems, setCartItems] = useState([])
   return (
-    <div>
+    <div className='App'>
       <Router>
         <Routes>
           <Route path="/" element={<ProductList />} />

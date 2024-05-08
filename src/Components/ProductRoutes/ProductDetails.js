@@ -13,16 +13,21 @@ function ProductDetails({ cartItems, setCartItems }) {
 
     useEffect(() => {
         const getproduct = async () => {
-            const response = await fetch("https://bike-rental-portal.vercel.app/bike/product/" + id, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-auth-token": localStorage.getItem("token")
-                }
-            });
-            const product = await response.json();
-            console.log(product.product)
-            setProduct(product.product)
+            try {
+                const response = await fetch("https://bike-rental-portal.vercel.app/bike/product/" + id, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "x-auth-token": localStorage.getItem("token")
+                    }
+                });
+                const product = await response.json();
+                console.log(product.product)
+                setProduct(product.product)
+                alert(product.message)
+            } catch (error) {
+                alert(error.message)
+            }
 
         }
         getproduct();
