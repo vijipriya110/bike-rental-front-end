@@ -78,7 +78,7 @@
 }
  .head{
   text-align: center;
-  background-color: rgb(1, 1, 14);
+  background-color: rgb(31, 31, 231);
   margin-top: 5px;
   padding: 10px;
   color:white;
@@ -109,9 +109,8 @@
   flex-wrap: wrap;
   height: 100%;
   width: 20%;
-  background-color:rgb(1, 1, 14);
+  background-color:rgb(31, 31, 231);
   font-size:small;
-  border-radius: 5px;
   position: fixed;
 }
 .nav >div {
