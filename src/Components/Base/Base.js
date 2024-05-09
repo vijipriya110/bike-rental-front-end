@@ -19,7 +19,6 @@ export default function Base({ title, description, children }) {
               <h1>BIKE RENTAL PORTAL</h1>
             </header>
           </div>
-          <hr></hr>
           <div className="lay-container">
             <div className="nav">
               <div><button className="sb" onClick={() => navigate("/")}>Products</button></div>
