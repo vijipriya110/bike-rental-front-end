@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import { MyContext } from '../MyContext';
 import { useNavigate } from 'react-router-dom';
 import Base from '../Base/Base';
 import Productcard from './Productcard';
@@ -7,7 +6,7 @@ import { ClipLoader } from 'react-spinners';
 
 
 function ProductList() {
-  // const { products, setProducts } = useContext(MyContext);
+  
   const navigate = useNavigate();
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
@@ -16,7 +15,7 @@ function ProductList() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 1000)
+    },500)
   })
 
 
@@ -32,8 +31,7 @@ function ProductList() {
           }
         });
         const products = await response.json();
-        // console.log(products.products)
-        setProducts(products.products)
+         setProducts(products.products)
         if (!localStorage.getItem("token")) {
           navigate("/signup")
           alert(products.message)
@@ -58,7 +56,7 @@ function ProductList() {
             color={"#36d7b7"}
             loading={loading}
 
-            size={150}
+            size={50}
             aria-label="Loading Spinner"
             data-testid="loader"
           />

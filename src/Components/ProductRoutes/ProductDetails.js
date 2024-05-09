@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import { Link, useParams } from 'react-router-dom';
 import Base from '../Base/Base';
-// import { MyContext } from '../MyContext';
 
 function ProductDetails({ cartItems, setCartItems }) {
-    // const { count } = useContext(MyContext);
-
+    
     const [product, setProduct] = useState(null)
     const [qty, setQty] = useState(1)
     const { id } = useParams();
@@ -24,7 +22,7 @@ function ProductDetails({ cartItems, setCartItems }) {
                 const product = await response.json();
                 console.log(product.product)
                 setProduct(product.product)
-                alert(product.message)
+   
             } catch (error) {
                 alert(error.message)
             }

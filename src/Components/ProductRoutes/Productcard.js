@@ -7,9 +7,7 @@ function Productcard({ product }) {
 
         <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-
                 <div className='card-box-container'>
-
                     <div key={product._id} className="card-box">
                         <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                             <img
@@ -33,9 +31,6 @@ function Productcard({ product }) {
 
                             </div>
                             <Link to={"/product/" + product._id} id="view_btn" className="btn btn-block">View Details</Link>
-
-
-
 
                         </div>
                     </div>

@@ -19,12 +19,11 @@ function ForgotPassword() {
         },
       })
       const data = await response.json()
-      // console.log(data)
-
+      
       navigate("/resetpassword")
-      alert(data.message)
-    } catch (error) {
-      alert(error.message)
+      
+    } catch (Err) {
+      alert(Err.message)
     }
 
   }

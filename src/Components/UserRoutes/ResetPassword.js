@@ -24,8 +24,7 @@ function ResetPassword() {
         }
       });
       const data = await res.json();
-      //  console.log(data)
-      navigate("/login")
+       navigate("/login")
       alert(data.message)
     } catch (error) {
       alert(error.message)

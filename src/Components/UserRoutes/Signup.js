@@ -9,14 +9,12 @@ function Signup() {
   const [loading, setLoading] = useState(false)
   const { email, setEmail, password, setPassword, username, setUsername, contact, setContact } = useContext(MyContext);
 
-
-
   useEffect(() => {
     setLoading(false)
     setTimeout(() => {
       setLoading(false)
 
-    }, 5000)
+    }, 1000)
   })
   const handleSignup = async () => {
     try {
@@ -35,7 +33,6 @@ function Signup() {
         },
       })
       const data = await response.json()
-      // console.log(data)
       localStorage.setItem("token", data.token)
       navigate("/login")
       alert(data.message)

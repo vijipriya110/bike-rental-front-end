@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { MyContext } from '../MyContext';
-// import { useHistory } from 'react-router-dom';
 import Base from '../Base/Base';
 
 function Updateproduct() {
@@ -42,7 +41,7 @@ function Updateproduct() {
       })
 
       const data = await response.json()
-      // console.log(data)
+     
       const prodIndex = products.findIndex((prod) => prod._id === id);
       if (data) {
         console.log(updatedObject)
@@ -109,8 +108,6 @@ function Updateproduct() {
         /><br></br>
 
         <button type='submit' onClick={handleCreate}>Submit</button><br></br>
-
-
 
       </div>
     </Base>

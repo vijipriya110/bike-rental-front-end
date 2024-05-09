@@ -6,8 +6,6 @@ import Base from '../Base/Base'
 function Cart({ cartItems, setCartItems }) {
     const [complete, setComplete] = useState(false)
 
-
-
     function increaseQty(item) {
         if (item.product.quantity === item.qty) {
             return

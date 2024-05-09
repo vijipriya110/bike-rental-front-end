@@ -6,7 +6,6 @@ function Signout() {
 
   const handleLogout = async () => {
 
-
     try {
       const res = await fetch(`https://bike-rental-portal.vercel.app/bike/logout`, {
         method: "GET",
@@ -16,8 +15,7 @@ function Signout() {
         }
       });
       const data = await res.json();
-      //  console.log(data)
-
+     
       localStorage.clear()
 
       navigate("/login")
